@@ -18,14 +18,18 @@ struct x_y dimensions_func(char *map)
    j = 0;
 
    while(map[index] != '\n')
-	  i++;
+   {
+      index++;
+      i++;
+   }
 
    index = 0;
 
    while(map[index] != '\0')
    {
-	  if(map[index] == '\n')
-		 j++;
+      if(map[index] == '\n')
+         j++;
+      index++;
    }
    dimensions.x = i;
    dimensions.y = j;
@@ -55,15 +59,14 @@ char **map_parse(char *map, struct x_y dims)
 
    while(count_j < j)
    {
-	  while(count_i < i)
-	  {
-		 map_parse[i][j] = map[index];
-		 index++;
-		 i++;
-	  }
-	  j++;
-	  i = 0;
+      while(count_i < i)
+      {
+         map_parse[i][j] = map[index];
+         index++;
+         i++;
+      }
+      j++;
+      i = 0;
    }
    return(map_parse);
-
 }

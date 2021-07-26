@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     struct x_y dims;
 
     if (argc != 2)
-        write(1, "Error\n", 5);
+        write(1, "Error", 5);
     else
     {
         file = argv[1];
