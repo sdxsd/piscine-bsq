@@ -27,13 +27,15 @@ char *map_to_string(char *file)
 int main(int argc, char *argv[])
 {
     char *file;
-    char *first_line;
+    char *map;
 
     if (argc != 2)
         write(1, "Error\n", 5);
     else {
         file = argv[1];
-        first_line = map_to_string(file);
-        ft_putstr(first_line);
+        map = map_to_string(file);
+        ft_putstr(map);
+
+        map_parse(map);
     }
 }
