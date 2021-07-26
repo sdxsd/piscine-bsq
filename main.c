@@ -6,6 +6,8 @@
 #include "lib.h"
 #include "map_parse.h"
 
+
+
 int main(int argc, char *argv[])
 {
     char *file;
@@ -13,7 +15,8 @@ int main(int argc, char *argv[])
 
     if (argc != 2)
         write(1, "Error\n", 5);
-    else {
+    else
+    {
         file = argv[1];
         map = map_to_string(file);
         ft_putstr(map);
