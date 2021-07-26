@@ -18,12 +18,12 @@ int *dimensions(char *map)
 	  if(map[index] == '\n')
 		 j++;
    }
-   dimensions[1] = i;
-   dimensions[2] = j;
-   return(dimensions)
+   dimensions[0] = i;
+   dimensions[1] = j;
+   return(dimensions);
 }
 
-char **map_parse(char *map, int dimensions)
+char **map_parse(char *map, int *dimensions)
 {
    int i;
    int j;
@@ -31,8 +31,8 @@ char **map_parse(char *map, int dimensions)
    int count_j;
    int index;
 
-   i = dimensions[1];
-   j = dimensions[2];
+   i = dimensions[0];
+   j = dimensions[1];
    count_i = 0;
    count_j = 0;
    index = 0;
