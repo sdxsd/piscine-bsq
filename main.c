@@ -3,7 +3,6 @@
 // Remove this before final push.
 #include <unistd.h>
 #include <fcntl.h>
-#include "ft_atoi.h"
 #include "lib.h"
 
 char *get_line(char *file)
