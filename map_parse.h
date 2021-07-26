@@ -32,7 +32,7 @@ struct x_y dimensions_func(char *map)
    return(dimensions);
 }
 
-char **map_parse(char *map, int *dimensions)
+char **map_parse(char *map, struct x_y dims)
 {
    struct x_y dimens;
    int i;
@@ -43,7 +43,7 @@ char **map_parse(char *map, int *dimensions)
    char **map_parse = NULL;
 
    // Doesn't do anything.
-   if (dimensions){}
+   if (dims.x){}
    // Doesn't do anything.
 
    dimens = dimensions_func(map);

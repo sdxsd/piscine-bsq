@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
     char *file;
     char *map;
+    struct x_y dims;
 
     if (argc != 2)
         write(1, "Error\n", 5);
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
         map = map_to_string(file);
         ft_putstr(map);
 
-        dimensions(map);
+        dims = dimensions_func(map);
+        map_parse(map, dims);
     }
 }
