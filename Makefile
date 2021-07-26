@@ -1,7 +1,4 @@
-all: program clean
+all: program 
 
 program:
-	clang -Wall -Wextra -Werror *.c -o bsq
-
-clean: 
-	rm bsq
+	clang -Wall -Wextra -Werror *.c 
