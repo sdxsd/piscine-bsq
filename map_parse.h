@@ -1,5 +1,14 @@
-int *dimensions(char *map)
+#include <stddef.h>
+
+struct x_y
 {
+   int x;
+   int y;
+};
+
+struct x_y dimensions_func(char *map)
+{
+   struct x_y dimensions;
    int index;
    int i;
    int j;
@@ -18,13 +27,14 @@ int *dimensions(char *map)
 	  if(map[index] == '\n')
 		 j++;
    }
-   dimensions[0] = i;
-   dimensions[1] = j;
+   dimensions.x = i;
+   dimensions.y = j;
    return(dimensions);
 }
 
 char **map_parse(char *map, int *dimensions)
 {
+   struct x_y dimens;
    int i;
    int j;
    int count_i;
@@ -32,8 +42,13 @@ char **map_parse(char *map, int *dimensions)
    int index;
    char **map_parse = NULL;
 
-   i = dimensions[0];
-   j = dimensions[1];
+   // Doesn't do anything.
+   if (dimensions){}
+   // Doesn't do anything.
+
+   dimens = dimensions_func(map);
+   i = dimens.x;
+   j = dimens.y;
    count_i = 0;
    count_j = 0;
    index = 0;
