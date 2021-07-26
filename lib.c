@@ -19,6 +19,18 @@ char	*ft_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
+void	ft_putstr(char *str)
+{
+	int	iterator;
+
+	iterator = 0;
+	while (str[iterator] != '\0')
+	{
+		iterator++;
+	}
+	write(1, str, iterator);
+}
+
 char *map_to_string(char *file)
 {
     char hold_char[32768];
@@ -29,7 +41,7 @@ char *map_to_string(char *file)
     ptr = &hold_char[0];
     iterator = 0;
     fd = open(file, O_RDONLY);
-    while (hold_char[iterator] != '\0')
+    while (hold_char[iterator] != EOF)
     {
         read(fd, &hold_char[iterator], 1);
         iterator++;
@@ -52,18 +64,6 @@ int	ft_str_is_numeric(char *str)
 	if (iterator == 0)
 		return (1);
 	return (1);
-}
-
-void	ft_putstr(char *str)
-{
-	int	iterator;
-
-	iterator = 0;
-	while (str[iterator] != '\0')
-	{
-		iterator++;
-	}
-	write(1, str, iterator);
 }
 
 int	ft_strlen(char *str)
