@@ -30,6 +30,7 @@ char **map_parse(char *map, int *dimensions)
    int count_i;
    int count_j;
    int index;
+   char **map_parse = NULL;
 
    i = dimensions[0];
    j = dimensions[1];
