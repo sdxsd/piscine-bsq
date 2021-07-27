@@ -6,8 +6,6 @@
 #include "lib.h"
 #include "map_parse.h"
 
-
-
 int main(int argc, char *argv[])
 {
     char *file;

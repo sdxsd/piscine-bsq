@@ -87,6 +87,73 @@ char		*str_convert(char *map)
 	return (ptr);
 }
 
+<<<<<<< HEAD
+=======
+char	*convert_2(char *ptr, char *map)
+{
+    int         nl_count;
+    struct x_y  map_dims;
+    int         iter_0;
+    int         iter_1;
+    char        *map_1;
+    char        buf[262144];
+	char		top_left;
+	char		top;
+	char		left;
+	char			lowest;
+	
+	map_1 = str_convert(map);
+    iter_0 = 0;
+    iter_1 = 0;
+    output = &buf[0];
+    map_dims = dimensions_func(map);
+    nl_count = 0;
+	while(map[iter_1] != '\n')
+	{
+		buf[iter_0] = map[iter_1];
+		iter_0 ++;
+		iter_1 ++;
+	}
+    while (ptr[iter_1] != '\0')
+    {
+		if (map[iter_1] == '\n')
+		{
+			buf[iter_0] = map[iter_1];
+			buf[iter_0 + 1] = map[iter_1 + 1]
+			iter_1 = iter_1 + 2;
+			iter_0 = iter_0 + 2;
+        else
+		{
+			top_left = buf[iter_0 - map_dims.x - 2];
+			top = buf[iter_0 - map_dims.x - 1];
+			left = buf[iter_0 - 1];
+			lowest = top_left;
+			if (top < lowest)
+				lowest = top;
+			if (left < lowest)
+				lowest = left;
+			buf[iter] = lowest + 1;
+        	++iter_0;
+        	++iter_1;
+		}
+    }
+    buf[iter_0] = '\0';
+    ft_putstr(buf);
+    return (output);
+
+struct map_format get_parse_header(char *map)
+{
+	int iter;
+	struct map_format; 
+
+	iter = 0; 
+	while (map[iter] != '\n')
+	{
+
+	}
+}
+
+>>>>>>> e242059030e60326faaf4b218b39f53e8573d1f2
 char **map_parse(char *map, struct x_y dims)
 {
 	struct x_y dimens;
