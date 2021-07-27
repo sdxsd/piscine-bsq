@@ -77,6 +77,58 @@ char		*str_convert(char *map)
 	return (ptr);
 }
 
+char	*convert_2(char *ptr, char *map)
+{
+    int         nl_count;
+    struct x_y  map_dims;
+    int         iter_0;
+    int         iter_1;
+    char        *map_1;
+    char        buf[262144];
+	char		top_left;
+	char		top;
+	char		left;
+	char			lowest;
+	
+	map_1 = str_convert(map);
+    iter_0 = 0;
+    iter_1 = 0;
+    output = &buf[0];
+    map_dims = dimensions_func(map);
+    nl_count = 0;
+	while(map[iter_1] != '\n')
+	{
+		buf[iter_0] = map[iter_1];
+		iter_0 ++;
+		iter_1 ++;
+	}
+    while (ptr[iter_1] != '\0')
+    {
+		if (map[iter_1] == '\n')
+		{
+			buf[iter_0] = map[iter_1];
+			buf[iter_0 + 1] = map[iter_1 + 1]
+			iter_1 = iter_1 + 2;
+			iter_0 = iter_0 + 2;
+        else
+		{
+			top_left = buf[iter_0 - map_dims.x - 2];
+			top = buf[iter_0 - map_dims.x - 1];
+			left = buf[iter_0 - 1];
+			lowest = top_left;
+			if (top < lowest)
+				lowest = top;
+			if (left < lowest)
+				lowest = left;
+			buf[iter] = lowest + 1;
+        	++iter_0;
+        	++iter_1;
+		}
+    }
+    buf[iter_0] = '\0';
+    ft_putstr(buf);
+    return (output);
+
 struct map_format get_parse_header(char *map)
 {
 	int iter;
