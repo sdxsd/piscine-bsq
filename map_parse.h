@@ -6,6 +6,13 @@ struct x_y
 	int y;
 };
 
+struct map_format
+{
+	char empties; 
+	char obstacles; 
+	char squares; 
+};
+
 struct x_y dimensions_func(char *map)
 {
 	struct x_y dimensions;
@@ -70,7 +77,17 @@ char		*str_convert(char *map)
 	return (ptr);
 }
 
+struct map_format get_parse_header(char *map)
+{
+	int iter;
+	struct map_format; 
 
+	iter = 0; 
+	while (map[iter] != '\n')
+	{
+
+	}
+}
 
 char **map_parse(char *map, struct x_y dims)
 {
