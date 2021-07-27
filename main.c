@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
         ft_putstr(map);
 
         dims = dimensions_func(map);
-        map_parse(map, dims);
+        // map_parse(map, dims);
+		str_convert(map);
     }
 }

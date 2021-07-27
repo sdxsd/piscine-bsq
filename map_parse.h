@@ -23,8 +23,7 @@ struct x_y dimensions_func(char *map)
 	index = 0;
 	i = 0;
 	j = 0;
-
-	while(map[index] != '\n')
+	while (map[index] != '\n')
 	{
 		index++;
 		i++;
@@ -40,31 +39,42 @@ struct x_y dimensions_func(char *map)
 	}
 	dimensions.x = i;
 	dimensions.y = j;
-	return(dimensions);
+	return (dimensions);
+}
+
+struct map_format get_parse_header(char *map)
+{
+	struct map_format	format; 
+	format.empties = map[2];
+	format.obstacles = map[3];
+	format.squares = map[4];
+	return (format);
 }
 
 char		*str_convert(char *map)
 {
-	int 		nl_count;
-	struct x_y 	map_dims;
-	int 		iter_0;
-	int 		iter_1;
-	char 		*ptr; 
-	char 		buf[262144];
+	int 				nl_count;
+	struct x_y 			map_dims;
+	struct map_format	format; 
+	int 				iter_0;
+	int 				iter_1;
+	char 				*ptr; 
+	char 				buf[262144];
 
+	nl_count = 0;
 	iter_0 = 0;
 	iter_1 = 0;
 	ptr = &buf[0];
 	map_dims = dimensions_func(map);
-	nl_count = 0;
+	format = get_parse_header(map);
 	while (map[iter_1] != '\n')
 		++iter_1;
 	while (map[iter_1] != '\0')
 	{
-		if (map[iter_1] == '.')
-			buf[iter_0] = 1;
-		else if (map[iter_1] == 'o')
-			buf[iter_0] = 0;
+		if (map[iter_1] == format.empties)
+			buf[iter_0] = '1';
+		else if (map[iter_1] == format.obstacles)
+			buf[iter_0] = '0';
 		else if (map[iter_1] == '\n')
 			buf[iter_0] = '\n';
 		else
@@ -75,18 +85,6 @@ char		*str_convert(char *map)
 	buf[iter_0] = '\0';
 	ft_putstr(buf);
 	return (ptr);
-}
-
-struct map_format get_parse_header(char *map)
-{
-	int iter;
-	struct map_format; 
-
-	iter = 0; 
-	while (map[iter] != '\n')
-	{
-
-	}
 }
 
 char **map_parse(char *map, struct x_y dims)
