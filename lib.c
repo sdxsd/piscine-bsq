@@ -33,7 +33,7 @@ void	ft_putstr(char *str)
 
 char *map_to_string(char *file)
 {
-    char hold_char[32768];
+    char hold_char[262144];
     int fd;
     int iterator;
     char *ptr;

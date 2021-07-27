@@ -36,6 +36,42 @@ struct x_y dimensions_func(char *map)
 	return(dimensions);
 }
 
+char		*str_convert(char *map)
+{
+	int 		nl_count;
+	struct x_y 	map_dims;
+	int 		iter_0;
+	int 		iter_1;
+	char 		*ptr; 
+	char 		buf[262144];
+
+	iter_0 = 0;
+	iter_1 = 0;
+	ptr = &buf[0];
+	map_dims = dimensions_func(map);
+	nl_count = 0;
+	while (map[iter_1] != '\n')
+		++iter_1;
+	while (map[iter_1] != '\0')
+	{
+		if (map[iter_1] == '.')
+			buf[iter_0] = 1;
+		else if (map[iter_1] == 'o')
+			buf[iter_0] = 0;
+		else if (map[iter_1] == '\n')
+			buf[iter_0] = '\n';
+		else
+			continue ;
+		++iter_0;
+		++iter_1;
+	}
+	buf[iter_0] = '\0';
+	ft_putstr(buf);
+	return (ptr);
+}
+
+
+
 char **map_parse(char *map, struct x_y dims)
 {
 	struct x_y dimens;
